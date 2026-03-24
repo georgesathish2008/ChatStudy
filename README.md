@@ -108,7 +108,7 @@ Client-server chat applications are foundational to real-time communication over
 ## Program:
 import socket
 
-# Create socket
+#Create socket
 server_socket = socket.socket()
 server_socket.bind(('localhost', 12345))
 server_socket.listen(1)
@@ -135,7 +135,7 @@ while True:
 conn.close()
 server_socket.close()
 
-## client server program :
+##client server program :
 Algorithm: Client Program for Sending Frames Using Socket Programming
 
 Step 1: Start the program.
@@ -180,7 +180,7 @@ Step 10: Stop the program
 import socket
 import time
 
-# Create socket
+#Create socket
 client_socket = socket.socket()
 client_socket.connect(('localhost', 12345))
 
