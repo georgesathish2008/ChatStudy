@@ -73,6 +73,135 @@ Client-server chat applications are versatile tools that facilitate real-time co
 
 Client-server chat applications are foundational to real-time communication over networks. They incorporate principles of socket programming, communication protocols, and security mechanisms to provide a seamless user experience. Understanding the basics of client-server chat applications is essential for developers involved in networked application development, as they form the backbone of various collaborative communication systems. As technology evolves, chat applications continue to adapt, incorporating new features and technologies to enhance user interaction and connectivity.
 
+## client side program:
+
+# Algorithm: Stop-and-Wait Server using Sockets
+
+1.Start the program.
+
+2.Import the socket module.
+
+3.Create a server socket using socket().
+
+4.Bind the socket to the local host and a specific port number (12345).
+
+5.Put the server into listening mode to wait for client connections.
+
+6.Display a message indicating the server is waiting for a connection.
+
+7.Accept the incoming client connection and obtain the connection object and client address.
+
+8.Display the client’s address after successful connection.
+
+9.Repeat the following steps until termination:
+
+10.Decode the received data.
+
+11.Send an acknowledgment ("ACK") to the client.
+
+12.Display confirmation that ACK is sent.
+
+13.Close the client connection.
+
+14.Close the server socket.
+
+## Program:
+import socket
+
+# Create socket
+server_socket = socket.socket()
+server_socket.bind(('localhost', 12345))
+server_socket.listen(1)
+
+print("Server is waiting for connection...")
+
+conn, addr = server_socket.accept()
+print("Connected to client:", addr)
+
+while True:
+    frame = conn.recv(1024).decode()
+
+    if frame == "exit":
+        print("Transmission completed.")
+        break
+
+    print("Received frame:", frame)
+
+    # Send ACK
+    ack = "ACK"
+    conn.send(ack.encode())
+    print("ACK sent\n")
+
+conn.close()
+server_socket.close()
+
+## client server program :
+Algorithm: Client Program for Sending Frames Using Socket Programming
+
+Step 1: Start the program.
+
+Step 2: Import required modules
+
+socket for network communication
+
+time for delay between frames
+
+Step 3: Create a client socket using the socket library.
+
+Step 4: Connect the client socket to the server using
+
+Host name: localhost
+
+Port number: 12345
+
+Step 5: Read the number of frames n from the user.
+
+Step 6: Initialize a loop from i = 1 to n.
+
+Step 7: For each iteration:
+
+Create a frame message as "Frame i".
+
+Send the frame to the server.
+
+Wait to receive the acknowledgment (ACK) from the server.
+
+Display the received ACK.
+
+Wait for 1 second before sending the next frame.
+
+Step 8: After all frames are sent, send the message "exit" to the server.
+
+Step 9: Close the client socket.
+
+Step 10: Stop the program
+
+### Program:
+import socket
+import time
+
+# Create socket
+client_socket = socket.socket()
+client_socket.connect(('localhost', 12345))
+
+n = int(input("Enter number of frames to send: "))
+
+for i in range(1, n + 1):
+    frame = f"Frame {i}"
+    print("Sending:", frame)
+    client_socket.send(frame.encode())
+
+    # Wait for ACK
+    ack = client_socket.recv(1024).decode()
+    print("Received:", ack)
+    time.sleep(1)
+
+client_socket.send("exit".encode())
+client_socket.close()
+
+## output:
+<img width="1205" height="616" alt="image" src="https://github.com/user-attachments/assets/950e5852-4a50-44b3-a414-7ccdb6964170" />
+<img width="1205" height="616" alt="image" src="https://github.com/user-attachments/assets/6539d6ec-4e0a-4937-8d63-baea5bf9dd93" />
 
 ## Result:
 
