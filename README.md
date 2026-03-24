@@ -105,6 +105,7 @@ Client-server chat applications are foundational to real-time communication over
 
 14.Close the server socket.
 
+
 ## Program:
 import socket
 
@@ -134,6 +135,8 @@ while True:
 
 conn.close()
 server_socket.close()
+
+
 
 ##client server program :
 Algorithm: Client Program for Sending Frames Using Socket Programming
